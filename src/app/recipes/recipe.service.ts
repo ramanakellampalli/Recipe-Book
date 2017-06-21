@@ -12,21 +12,26 @@ export class RecipeService {
     new Recipe(
       'Chicken Biryani',
       'A super-tasty Biryani - just awesome!',
-      'https://c1.staticflickr.com/1/473/19951613076_e8f79bd24e_b.jpg',
+      'http://www.thedeliciouscrescent.com/wp-content/uploads/2016/05/Easy-Hyderabadi-Chicken-Biryani.jpg',
     [
       new Ingredient('Meat', 1),
       new Ingredient('French Fries', 20)
     ]),
     new Recipe(
-      'Dosa',
+      'Kodi Kura',
       'What else you need to say?',
-      'https://c1.staticflickr.com/4/3737/12160134833_b4abc1c22b_b.jpg',
+      'https://i.ytimg.com/vi/tzUcYpgRD78/maxresdefault.jpg',
     [
       new Ingredient('Buns', 2),
       new Ingredient('Meat', 1)
     ])
   ];
   constructor(private slService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
